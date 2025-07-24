@@ -36,16 +36,21 @@ const ListItem = (props) => (
   </li>
 )
 
-const App = () => {
-  const items = ["Ford", "Tesla", "Volvo", "Mercedes", "Fiat"];
-
-  const ListItems = items.map(item => <li key={item}>{item}</li>);
-
+// List item components...
+function ListCompontent () {
+  return <li>Tesla</li>
+}
+// Create our root App component => App component
+function App() {
   return (
     <ol>
-      {ListItems}
+      <ListCompontent />
+      <ListCompontent />
+      <ListCompontent />
+      <ListCompontent />
+      <ListCompontent />
     </ol>
-  );
+  )
 };
 
 export default App;
