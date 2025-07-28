@@ -1,56 +1,36 @@
 import React from "react";
+import UserProfileCard from "./components/ProfileCard";
 
-const Greetings = () => <p>Hello there! Good morning</p>;
-
-
-// Avatar component....
-const Avatar = () => (
-  <div className="card-image">
-    <img
-      className="card-image"
-      src="https://www.w3schools.com/howto/img_avatar.png"
-      alt="Avatar"
-      style={{ width: 100 }}
-    />
-  </div>
-);
-
-// Profile card....
-const UserProfileCard = () => (
-
-  <div className="card">
-    <Avatar/>
-    <div className="card-name">Joy</div>
-    <div>Joy is a Frontend Developer</div>
-  </div>
-);
-
-// A list item component....
-const ListItem = (props) => (
-  <li>
-    Ford
-    Tesla
-    Volvo
-    Mercedes
-    Fiat
-  </li>
-)
-
-// List item components...
-function ListCompontent () {
-  return <li>Tesla</li>
-}
 // Create our root App component => App component
 function App() {
+  const users = [
+    {
+    name: "Joy G",
+    role: "Frontend Developer",
+    bio: "A Frontend Developer",
+    avatar: "https://www.w3schools.com/howto/img_avatar.png"
+  },
+   {
+    name: "John Doe",
+    role: "Backend Developer",
+    bio: "A Backend Developer",
+    avatar: "https://www.w3schools.com/howto/img_avatar.png"
+  }
+  ];
+
+  const usersList = users.map(user => {
+    return <div>
+      <img src={user.avatar} alt="Avatar" style={{ width: 100 }} />
+      <h3>{user.name}</h3>
+      <p>{user.bio}</p>
+        </div>
+  })
+
   return (
-    <ol>
-      <ListCompontent />
-      <ListCompontent />
-      <ListCompontent />
-      <ListCompontent />
-      <ListCompontent />
-    </ol>
-  )
-};
+    <section> 
+      {usersList}
+    </section>
+  );
+}
 
 export default App;
